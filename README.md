@@ -69,6 +69,29 @@ Multiple gap types may apply to a single answer.
 
 ## System Architecture
 
+![System Architecture](architecture.png)
+
+flowchart TD
+A[Student / Professor Interface] --> B[API Layer]
+B --> C[Reasoning & Gap Engine]
+
+C --> D[Canonical Reasoning Model]
+C --> E[Student Answer Analysis]
+C --> F[Gap Classification Engine]
+
+E --> G[OCR Adapter<br/>(if handwritten)]
+G --> E
+
+F --> H[Universal Gap Taxonomy]
+
+C --> I[Structured Diagnosis Output]
+I --> J[Feedback & Remediation]
+I --> K[Analytics & Aggregation]
+
+J --> A
+K --> A
+
+
 The system follows a clean, layered architecture:
 
 Frontend (Student / Professor)
@@ -146,3 +169,4 @@ The heart of the system is a structured LLM-based reasoning diagnosis pipeline.
   ],
   "incomplete": true
 }
+
