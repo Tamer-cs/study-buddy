@@ -1,0 +1,20 @@
+***System Decisions
+1- add an evaluation metric.make 2 professors classify student answers, see how much they match (the 2 professors, say 80%) and how much my tool matches (say 85%) then the tool is actually doing better than human performance
+2- lock in the canonical reasoning source (i should have a human in the loop, not just fully LLM generated canonical reasoning)
+3- add an LLM validation system. other than that the project becomes an LLM wrapper. this is done by RAG (to make sure answers are strictly from slides) and from generating multiple answers and see if they are consistent (high confidence) or not (low confidence, needs adressing)
+NOTE: hellucinations will always happen. make sure they happen loudly and be noticed not silently
+4- IMPORTANT: consider ditching the idea of canical reasoning because it is very complex and hellucinations bound. instead those 2 concepts do the work : constraing the LLM first to just classify the gap (from the gap taxonomy), then tell the LLM to give feedback to the student based on the course material that cover that exact gap. THE GAP TAXONOMY BECOMES A ROUTING SYSTEM FOR SPECIALIZED PROBLEM SPECIFIC FEEDBACK
+5- each chapter should be split into concepts, when a user faces a question, we look what is the underlying concept the question is asking (for example heaps), then this combined with the gap taxonomy gives the LLM very strict and optimized and targeted guidelines. ALSO, this works in the professor analytical dashboard, as instead of 60% of student have intuition gaps, it says 60% of students have intuition gaps on heaps
+
+***Featuers:
+1- Add on spot video generation (paid subscription) for visual learners(VERY LATE IF I HAVE TIME!)
+2- dynamic adjustment of the practice questions difficulty
+
+***Gap Taxonomy and what do they lead to: 
+1- Conceptual Confusion → clarify the distinction, use contrast and analogy
+2- Procedural Application Gap → walk through the thinking process step by step, out loud
+3- Intuition Gap → ask why, force justification, expose the reasoning behind the correct answer
+4- Incomplete Understanding → identify exactly where the reasoning stopped and push from there
+
+***why is studybuddy novel: 
+Existing AI tutors (Khanmigo, ChatGPT) guide students toward answers but don't diagnose why reasoning fails. They are course-agnostic — they reason from general training data, not from what was actually taught. Study Buddy addresses a different problem: given a student's answer to an exam question, grounded in their specific course material, classify the cognitive gap type and deliver feedback that teaches the thinking process THAT FILLS THIS EXACT GAP, not the answer.
