@@ -86,8 +86,7 @@ This combination gives the LLM tightly scoped, optimized guidelines for feedback
 ---
 
 ## System Architecture
-
-```
+```mermaid
 flowchart TD
     A[Student / Professor Interface] --> B[API Layer - FastAPI]
     B --> C[Gap Classification Engine]
@@ -110,7 +109,6 @@ flowchart TD
 ```
 
 The system follows a clean, layered architecture:
-
 ```
 Frontend (Student / Professor)
         |
@@ -128,7 +126,6 @@ Gap Classification Engine (LLM-based, taxonomy-constrained)
 ```
 
 OCR is treated as a **lossy input adapter**, not part of the core intelligence.
-
 ---
 
 ## LLM Validation System
