@@ -3,12 +3,12 @@
 ## Working
 - Project documentation and AI context files initialized.
 - Project workflow and development methodology locked (see plan.md).
+- Sprint 1, Step 3: Dev environment setup completed (Git, Docker, virtual environment, environment variables).
 
 ## In Progress
-- Sprint 1, Step 3: Setting up dev environment (Docker, Git, virtual environment).
+- Sprint 1, Step 4: High-level API endpoint map.
 
 ## Up Next
-- Step 4: Write high-level API endpoint map.
 - Step 6: Build walking skeleton (button → endpoint → DB read).
 - Step 7: Authentication and role system (student vs professor).
 - Step 8: RAG + gap classification spike — highest risk, must be validated before any feature is built around it.
