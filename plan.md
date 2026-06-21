@@ -20,6 +20,7 @@
 ### Step 4 — High-Level API Contract (Endpoint Map)
 - [ ] Write a rough map of all endpoints and their purpose (not detailed shapes yet).
 - [ ] This is the shared agreement so frontend and backend stay aligned throughout the project.
+- [ ] See [API-contract.md](API-contract.md) for the MVP endpoint map skeleton.
 - [ ] Detailed Pydantic request/response models are written per feature, right before building that feature.
 
 ### Step 5 — Define Architecture Pattern
