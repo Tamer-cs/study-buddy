@@ -126,6 +126,19 @@ Gap Classification Engine (LLM-based, taxonomy-constrained)
 ```
 
 OCR is treated as a **lossy input adapter**, not part of the core intelligence.
+
+## Architectural Decision: Why RAG over Fine-Tuning?
+
+For Study-Buddy, fine-tuning is treated as an architectural anti-pattern. The system relies on the base LLM for its pre-trained natural language processing and logic, but strictly utilizes **Retrieval-Augmented Generation (RAG)** for its knowledge base.
+
+This decision is driven by three production realities:
+
+1. **Dynamic Multi-Tenancy (The "New Course" Problem)**
+   The system is designed to allow professors to dynamically upload their own unique PDFs and slides. Fine-tuning a model on a specific professor's materials is static and unscalable. RAG allows the system to swap the entire knowledge base instantly based on the course context by querying the scoped vector database.
+2. **Strict Fact Grounding vs. Behavior Modification**
+   Fine-tuning modifies a model's tone and syntax, but it is highly susceptible to hallucinations when recalling facts. Because existing LLMs are course-agnostic and reason from general training data, they must be physically constrained to what was actually taught. RAG forces the LLM to pull arguments directly from the specific chunks of retrieved course material.
+3. **The Data Scarcity Cold-Start**
+   Effective fine-tuning requires thousands of highly accurate, human-labeled pairs of student answers mapped to correct gap taxonomy classifications. This dataset does not exist yet. Using RAG combined with the structured gap taxonomy routing allows the system to operate effectively with a zero-shot approach, enabling the collection of data that could theoretically be used for fine-tuning in the future.
 ---
 
 ## LLM Validation System
